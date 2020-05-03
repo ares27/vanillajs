@@ -6,6 +6,98 @@ const trackLocationBtn = $('#track-location-btn');
 trackLocationBtn.hide();
 
 
+const loggedInLinks = document.querySelectorAll('.logged-in');
+const loggedOutLinks = document.querySelectorAll('.logged-out');
+const greetUser = document.querySelector('#greet-user');
+
+console.log(greetUser);
+
+
+const setupUI = (user) => {
+    if(user) {
+        
+        loggedInLinks.forEach(item => item.style.display = 'block');
+        loggedOutLinks.forEach(item => item.style.display = 'none'); 
+        greetUser.innerHTML = `Hello ${user.email}`;   
+
+    } else {
+
+        loggedInLinks.forEach(item => item.style.display = 'none');
+        loggedOutLinks.forEach(item => item.style.display = 'block'); 
+
+    }
+}
+
+
+
+const locationsList = document.querySelector('.my-locations');
+
+// setup list
+const setupLocationsList = (data) => {
+
+      let html = '';
+
+
+      //
+      if(data.length) {
+
+        data.forEach(doc => {
+            const location = doc.data();
+            console.log("location: ", location);
+  
+          const li = `
+              <li class="list-group-item m-2">
+                    <h3>Co-ords</h3>
+                    <p>${location.latitude} ${location.longitude}<p>
+              </li>
+          `;
+  
+          html += li;
+  
+        });
+
+        locationsList.innerHTML = html;
+        
+      } else {
+
+        locationsList.innerHTML = '<h5 class="text-center">Login to view data.</h5>';
+      }
+
+
+     
+
+      
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Get user location
 getLocationBtn.on('click', (e) => {
     e.preventDefault();
@@ -53,8 +145,6 @@ trackLocationBtn.on('click', (e) => {
     });
 
 })
-
-
 
 
 
