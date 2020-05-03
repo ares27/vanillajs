@@ -13,12 +13,22 @@ const greetUser = document.querySelector('#greet-user');
 console.log(greetUser);
 
 
+
+
+
+
+
+
+
+
+
+
 const setupUI = (user) => {
     if(user) {
         
         loggedInLinks.forEach(item => item.style.display = 'block');
         loggedOutLinks.forEach(item => item.style.display = 'none'); 
-        greetUser.innerHTML = `Hello ${user.email}`;   
+        greetUser.inner   
 
     } else {
 
@@ -46,9 +56,9 @@ const setupLocationsList = (data) => {
             console.log("location: ", location);
   
           const li = `
-              <li class="list-group-item m-2">
-                    <h3>Co-ords</h3>
-                    <p>${location.latitude} ${location.longitude}<p>
+              <li class="list-group-item mb-1">
+                <h5>Co-ords</h5>  
+                <p>${location.latitude} ${location.longitude}</p>
               </li>
           `;
   
@@ -60,13 +70,9 @@ const setupLocationsList = (data) => {
         
       } else {
 
-        locationsList.innerHTML = '<h5 class="text-center">Login to view data.</h5>';
+        locationsList.innerHTML = '<h5 class="text-center mt-5">Login to view data.</h5>';
       }
 
-
-     
-
-      
 }
 
 

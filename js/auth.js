@@ -4,8 +4,7 @@ auth.onAuthStateChanged(user => {
     if(user) {
         console.log("User logged in: ", user);
 
-
-        // Get data from fb
+        // Get data from firebase db
         db.collection('locations').get().then(res => {
             console.log(res.docs);
             setupLocationsList(res.docs);
@@ -13,18 +12,14 @@ auth.onAuthStateChanged(user => {
 
         setupUI(user);
 
-
-
     } else {
         console.log("User logged out: ", user);
         
         setupUI();
         setupLocationsList([]);
-
-        
+      
     }
 })
-
 
 
 // Sign-up

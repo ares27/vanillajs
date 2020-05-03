@@ -1,15 +1,29 @@
+.main-container {
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+
+}
+
+.main-container img:hover {
+    width: 120px;
+    cursor: pointer;
+}
+
+.main-container figcaption {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+
 .form-container {
 
     position: relative;
     display: flex;
     justify-content: center;
 
-}
-
-form {
-    margin-top: 5%;
-    margin-bottom: 5%;
-    height: auto;
 }
 
 form input {

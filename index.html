@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/form.css" />
 
@@ -15,49 +17,72 @@
 
     
 
+    <!--      NavBar         -->
+ 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+          
+            <a class="nav-item nav-link logged-in" href="#" data-toggle="modal" data-target="#modal-account" style="display: none">
+                <i class="fa fa-user"></i>
+                My Account
+            </a>
+            
 
-    
+            <a class="nav-item  nav-link logged-out" href="#" data-toggle="modal" data-target="#modal-login" style="display: none">
+                <i class="fa fa-sign-in"></i>
+                Login
+            </a>
 
-    
-    <!-- NavBar -->
-    <nav class="navbar navbar-dark bg-dark text-white">
-        
-        <a class="navbar-brand" href="#">
-            <img src="./assets/img/eye.svg" id="logo-svg" alt="" style="display: none">
-            <span class="logged-in" id="greet-user" style="display: none">Hello User</span>
-        </a>
+            
+            <a class="nav-item nav-link logged-in" href="#" id="logout-link" style="display: none">
+                <i class="fa fa-sign-out"></i>
+                Logout
+            </a>
 
+            <a class="nav-item nav-link logged-out" href="#" data-toggle="modal" data-target="#modal-signup" style="display: none"> 
+                <i class="fa fa-user-plus"></i>
+                Sign-Up
+            </a>
 
-        <span class="navbar-text text-white" >
+            <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
 
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link logged-in" href="#" data-toggle="modal" data-target="#modal-account" style="display: none">ACCOUNT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link logged-out" href="#" data-toggle="modal" data-target="#modal-login" style="display: none">LOGIN</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link logged-in" href="#" id="logout-link" style="display: none">LOGOUT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link logged-out" href="#" data-toggle="modal" data-target="#modal-signup" style="display: none">Sign-Up</a>
-                </li>
-              </ul>
-
-
-
-        </span> 
-    
-
+          </div>
+        </div>
     </nav>
+
+    <!--//    END NavBar      -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container flex justify-content-center main-container">
+        <figure>
+            <img id="my-location-svg" src="./assets/img/location.svg" width="100px" data-toggle="modal" data-target="#modal-mylocation"/>
+            <figcaption>MY LOCATION</figcaption>
+        </figure>
+    </div>
+
+
 
     
     <!-- Main Content -->    
    
     <div class="flex justify-content-center form-container">
         
-        <form class="border rounded shadow p-4 w-50 bg-light" id="my-form">
+        <!-- <form class="border rounded shadow p-4 w-50 bg-light" id="my-form">
             
             <div class="text-center bg-dark text-white mb-4 p-2">
                     GET MY LOCATION
@@ -86,7 +111,7 @@
                 Something must've gone wrong...
             </div>
 
-        </form>
+        </form> -->
 
 
         
@@ -105,10 +130,6 @@
     <!-- END Main Content -->
 
 
-    
-
-
- 
 
 
 
@@ -119,62 +140,135 @@
 
 
 
+<!--      My Location Modal      -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-    <!-- Sign-Up Modal -->
-    <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="modal-signupLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-            
-                <form id="signup-form">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
-                    <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="password-input">
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-
-            </div>
-            <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button> -->
-            </div>
+<div class="modal fade" id="modal-mylocation" tabindex="-1" role="dialog" aria-labelledby="modal-mylocationLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="mylocationLabel">My Location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
         </div>
+        <div class="modal-body">
+        
+            <form class="p-4" id="my-form">
+    
+                <div class="row">
+                    <div class="col">
+                    <label for="latitude">Latitude</label>
+                    <input type="text" class="form-control" id="latitude" placeholder="Latitude:">
+                  </div>
+                  
+                  <div class="col">
+                    <label for="longitude">Longitude:</label>
+                    <input type="text" class="form-control" id="longitude" placeholder="Longitude:">
+                  </div>
+                </div>
+    
+                <button class="btn btn-outline-primary btn-block" id="get-location-btn">GET MY LOCATION</button>
+                <button class="btn btn-outline-success btn-block" id="track-location-btn">TRACK ME</button>
+    
+                <div class="alert alert-success mt-2" role="alert">
+                    Your location has been tracked successfully!
+                </div>
+    
+                <div class="alert alert-danger mt-2" role="alert">
+                    Something must've gone wrong...
+                </div>
+    
+            </form>
+
+        </div>
+        <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
     </div>
+    </div>
+</div>
 
-    <!-- End Sign-Up Modal -->
+<!-- End My Location Modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+  <!-- SIGN-UP Modal -->
+  <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="modal-signupLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          <div class="modal-body">
+          
+              <form id="signup-form">
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="password-input">
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+
+          </div>
+          <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+      </div>
+      </div>
+  </div>
+
+  <!-- End Sign-Up Modal -->
 
 
 
@@ -197,13 +291,13 @@
         <div class="modal-body">
         
             <form id="login-form">
-                <div class="input-field">
+                <div class="form-group">
                     <label for="login-email">Email address</label>
-                    <input type="email" id="login-email" required />
+                    <input class="form-control" type="email" id="login-email" required />
                 </div>
-                <div class="input-field">
+                <div class="form-group">
                     <label for="login-password">Your password</label>
-                    <input type="password" id="login-password" required />
+                    <input class="form-control" type="password" id="login-password" required />
                 </div>
                 <button class="btn btn-primary darken-2 z-depth-0">Login</button>
               </form>
