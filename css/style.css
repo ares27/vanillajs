@@ -1,0 +1,41 @@
+#logo-svg {
+    position: relative;
+    width: 35px;
+}
+
+#logo-svg:hover {
+    
+        filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+#form-container {
+
+    position: relative;
+    /* margin-top: 10%; */
+    
+    display: flex;
+    justify-content: center;
+
+}
+
+form {
+    margin-top: 10%;
+    margin-bottom: 20%;
+}
+
+
+form input {
+    margin-bottom: 20px;
+}
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+    #my-form {
+       
+        width: 100%;
+    }
+  }
