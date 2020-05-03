@@ -1,6 +1,8 @@
 const form = document.getElementById('my-form');
 const latitude = document.getElementById('latitude');
 const longitude = document.getElementById('longitude');
+ 
+
 const getLocationBtn = $('#get-location-btn');
 const trackLocationBtn = $('#track-location-btn');
 trackLocationBtn.hide();
@@ -9,15 +11,7 @@ trackLocationBtn.hide();
 const loggedInLinks = document.querySelectorAll('.logged-in');
 const loggedOutLinks = document.querySelectorAll('.logged-out');
 const greetUser = document.querySelector('#greet-user');
-
-console.log(greetUser);
-
-
-
-
-
-
-
+const spinner = document.querySelector('.loading-spinner');
 
 
 
@@ -107,13 +101,21 @@ const setupLocationsList = (data) => {
 // Get user location
 getLocationBtn.on('click', (e) => {
     e.preventDefault();
-    console.log("Get Location: ", e);
+    //console.log("Get Location: ", e);
+    
     getLocation();
 
     setTimeout(()=> {
 
-        $('input').attr('readonly', true);
+        // hide loading spinner
+        spinner.style.display = 'none';
+
+        // set input to readonly
+        $('#my-form input').attr('readonly', true);
+        
+        // show trackr button
         trackLocationBtn.fadeIn();
+
 
     }, 3000)
 })
@@ -124,7 +126,13 @@ trackLocationBtn.on('click', (e) => {
     e.preventDefault();
     // console.log("Track Location: ", e);
     
-    
+    // hide tracker button
+    trackLocationBtn.fadeOut();
+
+    // show loading spinner
+    spinner.style.display = 'inline-block';
+
+
     let coords = {
         latitude: latitude.value,
         longitude: longitude.value
@@ -139,15 +147,24 @@ trackLocationBtn.on('click', (e) => {
 
         setTimeout(()=> {
 
-            trackLocationBtn.fadeOut();
+            // hide loading spinner
+            spinner.style.display = 'none';
 
+            // alert success to user
             $('.alert-success').fadeIn();
     
         }, 2000)
     })
     .catch(error => {
-        console.error("Error adding document: ", error);
-        $('.alert-danger').fadeIn();
+
+            //console.error("Error adding document: ", error);
+
+            // hide loading spinner
+            spinner.style.display = 'none';
+
+            // alert failure to user
+            $('.alert-danger').fadeIn();
+    
     });
 
 })
@@ -157,7 +174,16 @@ trackLocationBtn.on('click', (e) => {
 // Geolocation API call
 function getLocation() {
     if (navigator.geolocation) {
+        
+        // hide location button
+        getLocationBtn.fadeOut();
+
+        // show loading spinner
+        spinner.style.display = 'inline-block';
+        
+        // Get Position
         navigator.geolocation.getCurrentPosition(showPosition);
+        
     } else { 
         console.log("Geolocation is not supported by this browser.");
     }
@@ -166,9 +192,16 @@ function getLocation() {
 function showPosition(position) {
 
     //console.log("position: ", position.coords);
-    latitude.value = position.coords.latitude.toFixed(8);
-    longitude.value = position.coords.longitude.toFixed(8);
+    
+    setTimeout(()=> {
 
-    getLocationBtn.fadeOut();
+        latitude.value = position.coords.latitude.toFixed(8);
+        longitude.value = position.coords.longitude.toFixed(8);
 
+        // hide loading spinner
+        spinner.style.display = 'none';
+
+    }, 3000);  
+
+    
 }

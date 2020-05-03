@@ -1,3 +1,9 @@
+// const loginBtn = document.querySelector('#login-btn');
+// let spinner = document.querySelector('.loading-spinner');
+
+var modal = $("#modal-login");
+
+
 // Listen for Auth changes / Keep track for logged user
 auth.onAuthStateChanged(user => {
    
@@ -27,6 +33,9 @@ const signUpForm = document.querySelector('#signup-form');
 signUpForm.addEventListener('submit', (e) => {
     
     e.preventDefault();
+
+
+
     // Get user input
     const email = signUpForm['email-input'].value;
     const password = signUpForm['password-input'].value;
@@ -45,7 +54,7 @@ signUpForm.addEventListener('submit', (e) => {
              //close modal
             
 
-         })
+    })
 
 
         
@@ -55,27 +64,32 @@ signUpForm.addEventListener('submit', (e) => {
 // Sign-In
 const loginForm = document.querySelector('#login-form');
 loginForm.addEventListener('submit', (e) => {
+    
     e.preventDefault();
-    console.log(e);
+    //console.log(e);
 
     // Get User info
-    const email = loginForm['login-email'].value;
-    const password = loginForm['login-password'].value;
+    let email = loginForm['login-email'].value;
+    let password = loginForm['login-password'].value;
     
     console.log(email, password);
-
-
-    // close modal
 
     // login user 
     auth.signInWithEmailAndPassword(email, password)
         .then(cred => {
-            console.log(cred.user);          
-        }) 
+            console.log(cred.user);  
+            
+            //reset input fields
+            loginForm['login-email'].value = '';
+            loginForm['login-password'].value = '';
 
+            location.reload();
 
-
-
+            // modal.style.display = "none";
+            
+            // hide button and navigate back to page
+    }) 
+  
 
 })
 

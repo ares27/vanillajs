@@ -15,12 +15,15 @@
 </head>
 <body>
 
-    
+  
 
     <!--      NavBar         -->
  
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">
+          <i class="fa fa-location-arrow"></i>
+          JEH
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -71,7 +74,7 @@
     <div class="container flex justify-content-center main-container">
         <figure>
             <img id="my-location-svg" src="./assets/img/location.svg" width="100px" data-toggle="modal" data-target="#modal-mylocation"/>
-            <figcaption>MY LOCATION</figcaption>
+            <!-- <figcaption>MY LOCATION</figcaption> -->
         </figure>
     </div>
 
@@ -175,10 +178,16 @@
                 </div>
     
                 <div class="alert alert-danger mt-2" role="alert">
-                    Something must've gone wrong...
+                  <h4 class="alert-heading">Oops!</h4>  
+                  <p>Something must've gone wrong...<p></p>
                 </div>
+
     
             </form>
+
+            <div class="text-center">
+              <div class="spinner-border text-primary loading-spinner" style="display: none;"></div>
+            </div>
 
         </div>
         <div class="modal-footer">
@@ -247,12 +256,12 @@
           
               <form id="signup-form">
                   <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
+                      <label for="email-input">Email address</label>
                       <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp">
                       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                   </div>
                   <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
+                  <label for="password-input">Password</label>
                   <input type="password" class="form-control" id="password-input">
                   </div>
                   
@@ -299,8 +308,13 @@
                     <label for="login-password">Your password</label>
                     <input class="form-control" type="password" id="login-password" required />
                 </div>
-                <button class="btn btn-primary darken-2 z-depth-0">Login</button>
-              </form>
+                <button class="btn btn-primary btn-block darken-2 z-depth-0" id="login-btn">Login</button>
+                
+            </form>
+
+              <div class="text-center mt-2">
+              <div class="spinner-border text-primary loading-spinner" style="display:none;"></div>
+            </div>
 
         </div>
         <div class="modal-footer">
