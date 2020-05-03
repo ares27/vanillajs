@@ -1,0 +1,59 @@
+#form-container {
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+form {
+    margin-top: 10%;
+    margin-bottom: 20%;
+}
+
+form input {
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+.alert {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+    #my-form {
+       
+        width: 100%;
+    }
+  }

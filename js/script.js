@@ -38,9 +38,18 @@ trackLocationBtn.on('click', (e) => {
     db.collection("locations").add(coords)
     .then(docRef => {
         console.log("Document written with ID: ", docRef.id);
+
+        setTimeout(()=> {
+
+            trackLocationBtn.fadeOut();
+
+            $('.alert-success').fadeIn();
+    
+        }, 2000)
     })
     .catch(error => {
         console.error("Error adding document: ", error);
+        $('.alert-danger').fadeIn();
     });
 
 })
