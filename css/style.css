@@ -1,16 +1,28 @@
 body {
-    background: #00c6ff;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    /* background: linear-gradient(to right, #c9d6ff, #e2e2e2); */
+    background-color: #d8e8ec;
+   
 }
 
-#logo-svg {
-    width: 35px;
+.logged-in {
+    display: none;
 }
 
-#logo-svg:hover {
+.navbar {
+    /* display: none; */
+    justify-content: space-between;
+}
+
+
+.container {
+    margin-top: 5%;
     
-        filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
 }
+
+.track-container {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+
 

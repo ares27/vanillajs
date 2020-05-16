@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- CSS Dependencies -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/shards.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/map.css" />
+   
+
+
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/themes/light/main.css">
+    
+
+    <style>
+        #viewDiv {
+          padding: 5px;
+          height: 100%;
+          width: 100%;
+        }
+    </style>
+    
+
+
+
+    
+
+
+  </head>
+  
+<body>
+    
+          
+
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      
+      <a class="navbar-brand" href="#">
+        <svg class="bi bi-bootstrap-fill" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4.002 0a4 4 0 00-4 4v8a4 4 0 004 4h8a4 4 0 004-4V4a4 4 0 00-4-4h-8zm1.06 12h3.475c1.804 0 2.888-.908 2.888-2.396 0-1.102-.761-1.916-1.904-2.034v-.1c.832-.14 1.482-.93 1.482-1.816 0-1.3-.955-2.11-2.542-2.11H5.062V12zm1.313-4.875V4.658h1.78c.973 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23H6.375zm0 3.762h1.898c1.184 0 1.81-.48 1.81-1.377 0-.885-.65-1.348-1.886-1.348H6.375v2.725z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          
+          <li class="nav-item logged-in">
+            <a class="nav-link" href="../index.html">Home </a>
+          </li>
+          
+          <li class="nav-item logged-in active">
+            <a class="nav-link" href="#">My Account</a>
+          </li>
+          
+        
+        </ul>
+        
+    
+        <div class="form-inline dropdown">
+          
+          <svg class="bi bi-person-fill mr-1 logged-in" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+          </svg>
+          
+          <label class="hi-avatar mr-1 dropdown-toggle logged-in" href="#" id="userDropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </label>
+
+          <div class="dropdown-menu" aria-labelledby="userDropdownMenuLink">
+            <a class="dropdown-item logged-in signout-link" href="#">Logout</a>
+            <a class="dropdown-item logged-in" href="#">Another action</a>
+          </div> 
+          
+        </div> 
+      
+      </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+            
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <svg class="bi bi-geo" width="2rem" height="2rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 4a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path d="M7.5 4h1v9a.5.5 0 01-1 0V4z"/>
+                    <path fill-rule="evenodd" d="M6.489 12.095a.5.5 0 01-.383.594c-.565.123-1.003.292-1.286.472-.302.192-.32.321-.32.339 0 .013.005.085.146.21.14.124.372.26.701.382.655.246 1.593.408 2.653.408s1.998-.162 2.653-.408c.329-.123.56-.258.701-.382.14-.125.146-.197.146-.21 0-.018-.018-.147-.32-.339-.283-.18-.721-.35-1.286-.472a.5.5 0 11.212-.977c.63.137 1.193.34 1.61.606.4.253.784.645.784 1.182 0 .402-.219.724-.483.958-.264.235-.618.423-1.013.57-.793.298-1.855.472-3.004.472s-2.21-.174-3.004-.471c-.395-.148-.749-.336-1.013-.571-.264-.234-.483-.556-.483-.958 0-.537.384-.929.783-1.182.418-.266.98-.47 1.611-.606a.5.5 0 01.595.383z" clip-rule="evenodd"/>
+                </svg>
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    My Locations
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+
+                  <!-- <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Get My Location</a>
+                    <a href="#" class="list-group-item list-group-item-action">New feature</a>
+                  </div> -->
+                <button class="btn btn-success" id="get-location-btn">TRACK ME</button>
+                
+                <button class="btn btn-primary" id="submit-location-btn">SUBMIT</button>
+
+                <button class="btn btn-outline-primary" id="esri-map-btn" data-toggle="modal" data-target="#map-modal">ESRI MAP</button>
+                
+                <div class="row pt-4">
+                  <div class="col-12 col-md-6">
+                    <label class="lead h5">Latitude:</label>
+                    <p id="p-lat"></p>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="lead h5">Longitude:</label>
+                    <p id="p-lon"></p>
+                  </div>
+                </div>
+
+                <div class="row locations-row">
+
+                  
+                </div>
+
+              </div>
+            </div>     
+          </div>
+      
+      </div>
+
+
+        </div>
+
+        <!--    Other Container     -->
+        <div class="container">
+   
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <svg class="bi bi-exclamation-circle" width="2rem" height="2rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+                    <path d="M7.002 11a1 1 0 112 0 1 1 0 01-2 0zM7.1 4.995a.905.905 0 111.8 0l-.35 3.507a.552.552 0 01-1.1 0L7.1 4.995z"/>
+                  </svg>
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseCovidNews" aria-expanded="true" aria-controls="collapseCovidNews">
+                  COVID NEWS
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseCovidNews" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body" id="covid-card-body">
+    
+                  Awe
+               
+    
+              </div>
+            </div>     
+          </div>
+      
+      </div>
+    
+        </div>
+
+    <!-- <div class="container border text-center">
+      
+      <form>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+
+        <button class="btn btn-secondary btn-block">TRACK ME</button>
+      </form>
+
+    </div> -->
+
+
+    <!--  MAIN CONTAINER  -->
+    <!-- <div class="container mt-5">
+        
+        <section class="fdb-block shadow p-1 border border-light rounded">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-10 col-sm-6 col-md-5 col-lg-4 m-auto pb-5 pb-md-0">
+                  <img alt="image" class="img-fluid rounded-0" src="../assets/img/map-location.png">
+                </div>
+          
+                <div class="col-12 ml-md-auto col-md-7 col-lg-6 pb-5 pb-md-0">
+                    <svg class="bi bi-geo" width="2rem" height="2rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 4a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path d="M7.5 4h1v9a.5.5 0 01-1 0V4z"/>
+                        <path fill-rule="evenodd" d="M6.489 12.095a.5.5 0 01-.383.594c-.565.123-1.003.292-1.286.472-.302.192-.32.321-.32.339 0 .013.005.085.146.21.14.124.372.26.701.382.655.246 1.593.408 2.653.408s1.998-.162 2.653-.408c.329-.123.56-.258.701-.382.14-.125.146-.197.146-.21 0-.018-.018-.147-.32-.339-.283-.18-.721-.35-1.286-.472a.5.5 0 11.212-.977c.63.137 1.193.34 1.61.606.4.253.784.645.784 1.182 0 .402-.219.724-.483.958-.264.235-.618.423-1.013.57-.793.298-1.855.472-3.004.472s-2.21-.174-3.004-.471c-.395-.148-.749-.336-1.013-.571-.264-.234-.483-.556-.483-.958 0-.537.384-.929.783-1.182.418-.266.98-.47 1.611-.606a.5.5 0 01.595.383z" clip-rule="evenodd"/>
+                    </svg>
+                    <h1>Track Me</h1>
+                    <p class="lead">Far far away, behind the word mountains, far from the beach of Manandi and Mitchells Plain, there live no blind texts...</p>
+                    <p class="mt-4">
+
+                    <button class="btn btn-secondary" id="trackme-btn">TRACK ME</button>
+                    <button class="btn btn-secondary"  style="display: none;">MAP</button>
+                    
+                  </p>
+
+                  
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+   
+
+    
+    <!--        MAP MODAL          -->    
+    <div class="modal fade" id="map-modal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mapModalLabel">My Location</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              
+            <div class="container map-container">
+        
+              
+            <div id="viewDiv"></div>
+
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Nope</button> 
+           
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+          
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCJ34hTSeyMAxBTnKY6oYFqDg11oiAf820",
+        authDomain: "get-location-firebase-db.firebaseapp.com",
+        databaseURL: "https://get-location-firebase-db.firebaseio.com",
+        projectId: "get-location-firebase-db",
+        storageBucket: "get-location-firebase-db.appspot.com",
+        messagingSenderId: "841493656664",
+        appId: "1:841493656664:web:42cf50a4ce4b01ad08462d",
+        measurementId: "G-RT64971ZLL"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      
+      // Get the Auth service for the default app
+      let auth = firebase.auth();
+
+      // Get the Auth service for the default app
+      let db = firebase.firestore();
+
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- JavaScript Dependencies: jQuery, Popper.js, Bootstrap JS, Shards JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script src="../js/res/shards.min.js"></script>
+    <!-- <script src="../js/res/anime.min.js"></script> -->
+    <script src="../js/index.js"></script>
+    <script src="../js/home.js"></script>
+    <script src="../js/covid19/covid19.js"></script>
+    <script src="../js/geo/geolocate.js"></script>
+    <script src="https://js.arcgis.com/4.15/"></script>
+    <script src="../js/geo/arcgis.js"></script>
+    <script src="../js/firebase/auth.js"></script>
+    
+  </body>
+</html>

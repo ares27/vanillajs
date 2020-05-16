@@ -1,329 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>JEH - GPS Tracker</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>JEH - Tracker</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/form.css" />
-
-</head>
-<body>
-
+    <!-- CSS Dependencies -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/shards.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/anime.css">
+  </head>
   
-
-    <!--      NavBar         -->
- 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-          <i class="fa fa-location-arrow"></i>
-          JEH
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+  <body>
+    
           
-            <a class="nav-item nav-link logged-in" href="#" data-toggle="modal" data-target="#modal-account" style="display: none">
-                <i class="fa fa-user"></i>
-                My Account
-            </a>
-            
 
-            <a class="nav-item  nav-link logged-out" href="#" data-toggle="modal" data-target="#modal-login" style="display: none">
-                <i class="fa fa-sign-in"></i>
-                Login
-            </a>
 
-            
-            <a class="nav-item nav-link logged-in" href="#" id="logout-link" style="display: none">
-                <i class="fa fa-sign-out"></i>
-                Logout
-            </a>
+    
 
-            <a class="nav-item nav-link logged-out" href="#" data-toggle="modal" data-target="#modal-signup" style="display: none"> 
-                <i class="fa fa-user-plus"></i>
-                Sign-Up
-            </a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      
+      <a class="navbar-brand" href="#">
+        <svg class="bi bi-bootstrap-fill" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4.002 0a4 4 0 00-4 4v8a4 4 0 004 4h8a4 4 0 004-4V4a4 4 0 00-4-4h-8zm1.06 12h3.475c1.804 0 2.888-.908 2.888-2.396 0-1.102-.761-1.916-1.904-2.034v-.1c.832-.14 1.482-.93 1.482-1.816 0-1.3-.955-2.11-2.542-2.11H5.062V12zm1.313-4.875V4.658h1.78c.973 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23H6.375zm0 3.762h1.898c1.184 0 1.81-.48 1.81-1.377 0-.885-.65-1.348-1.886-1.348H6.375v2.725z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        <ul class="navbar-nav mr-auto">
+          
+          <li class="nav-item logged-in active">
+            <a class="nav-link" href="#">Home </a>
+          </li>
+          
+          <li class="nav-item logged-in">
+            <a class="nav-link" href="/routes/home.html">My Account</a>
+          </li>
+        
+        </ul>
 
-            <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+        <div class="form-inline dropdown">
 
-          </div>
-        </div>
+          <svg class="bi bi-person-fill mr-1 logged-in" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+          </svg>
+          
+          <label class="hi-avatar mr-1 dropdown-toggle logged-in" href="#" id="userDropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </label>
+
+          <div class="dropdown-menu" aria-labelledby="userDropdownMenuLink">
+            <a class="dropdown-item logged-in signout-link" href="#">Logout</a>
+            <a class="dropdown-item logged-in" href="#">Another Action</a>
+          </div> 
+          
+        </div> 
+      
+      </div>
     </nav>
 
-    <!--//    END NavBar      -->
 
 
 
 
 
+    <!--  Sign-In CONTAINER  -->
+    <div class="container track-container">
+       
+      
+      <section class="fdb-block">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-10 col-sm-6 m-auto col-md-4 pb-4 pb-md-0">
+              <img alt="image" class="img-fluid rounded-0" src="./assets/img/login.svg">
+            </div>
+      
+            <div class="col-12 ml-auto col-md-6 col-lg-5">
+              <h1>Trace</h1>
+              <p class="lead">Sign in and track your current location. Checkout other things too...</p>
+              <p>
+                <button type="button" class="btn btn-outline-success btn-pill" data-toggle="modal" data-target="#login-modal">
+                  SIGN-IN
+                </button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      
 
-
-
-
-
-
-
-    <div class="container flex justify-content-center main-container">
-        <figure>
-            <img id="my-location-svg" src="./assets/img/location.svg" width="100px" data-toggle="modal" data-target="#modal-mylocation"/>
-            <!-- <figcaption>MY LOCATION</figcaption> -->
-        </figure>
     </div>
 
 
 
-    
-    <!-- Main Content -->    
-   
-    <div class="flex justify-content-center form-container">
-        
-        <!-- <form class="border rounded shadow p-4 w-50 bg-light" id="my-form">
+
+
+
+
+    <!--  design  Block Container     -->
+    <div class="container">
+      <section class="fdb-block">
+        <div class="container">
+         
+          <div class="row mt-5">
             
-            <div class="text-center bg-dark text-white mb-4 p-2">
-                    GET MY LOCATION
+          </div>
+      
+      
+          <div class="row pt-5 justify-content-center align-items-center">
+            <div class="col-6 col-md-2">
+              <div class="box red"></div>
             </div>
-
-            <div class="row">
-                <div class="col">
-                <label for="latitude">Latitude</label>
-                <input type="text" class="form-control" id="latitude" placeholder="Latitude:">
-              </div>
-              
-              <div class="col">
-                <label for="longitude">Longitude:</label>
-                <input type="text" class="form-control" id="longitude" placeholder="Longitude:">
-              </div>
+            <div class="col-6 col-md-2 offset-md-1">
+              <div class="box green"></div>
             </div>
-
-            <button class="btn btn-outline-primary btn-block" id="get-location-btn">GET MY LOCATION</button>
-            <button class="btn btn-outline-success btn-block" id="track-location-btn">TRACK ME</button>
-
-            <div class="alert alert-success mt-3" role="alert">
-                Your location has been tracked successfully!
+            <div class="col-6 col-md-2 mt-4 mt-md-0 offset-md-1">
+              <div class="box blue"></div>
             </div>
-
-            <div class="alert alert-danger mt-3" role="alert">
-                Something must've gone wrong...
+            <div class="col-6 col-md-2 mt-4 mt-md-0 offset-md-1">
+              <div class="box greenyellow"></div>
             </div>
-
-        </form> -->
-
-
-        
-    </div>
-
-
-
-    <div class="flex justify-content-center form-container">
-        
-        <ul class="list-group my-locations w-50">
-              
-        </ul>
-   
-    </div>
-
-    <!-- END Main Content -->
-
-
-
-
-
-
-
-
-
-
-
-
-<!--      My Location Modal      -->
-
-<div class="modal fade" id="modal-mylocation" tabindex="-1" role="dialog" aria-labelledby="modal-mylocationLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="mylocationLabel">My Location</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+            
+          
+          </div>
         </div>
-        <div class="modal-body">
-        
-            <form class="p-4" id="my-form">
-    
-                <div class="row">
-                    <div class="col">
-                    <label for="latitude">Latitude</label>
-                    <input type="text" class="form-control" id="latitude" placeholder="Latitude:">
-                  </div>
-                  
-                  <div class="col">
-                    <label for="longitude">Longitude:</label>
-                    <input type="text" class="form-control" id="longitude" placeholder="Longitude:">
-                  </div>
-                </div>
-    
-                <button class="btn btn-outline-primary btn-block" id="get-location-btn">GET MY LOCATION</button>
-                <button class="btn btn-outline-success btn-block" id="track-location-btn">TRACK ME</button>
-    
-                <div class="alert alert-success mt-2" role="alert">
-                    Your location has been tracked successfully!
-                </div>
-    
-                <div class="alert alert-danger mt-2" role="alert">
-                  <h4 class="alert-heading">Oops!</h4>  
-                  <p>Something must've gone wrong...<p></p>
-                </div>
+      </section>
+    </div>
 
-    
-            </form>
 
-            <div class="text-center">
-              <div class="spinner-border text-primary loading-spinner" style="display: none;"></div>
+
+
+
+    <div class="container">
+
+      <section class="fdb-block">
+        <div class="container">
+          <div class="row text-left">
+            <div class="col-12 col-md-6">
+              <svg class="bi bi-eye-fill" width="3rem" height="3rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5 8a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7z" clip-rule="evenodd"/>
+              </svg>
+              <h3><strong>Track Current Location</strong></h3>
+              <p class="lead">With the Jehoma tracker you are closer to safety than ever. Try the webApp now.</p>
             </div>
-
+            <div class="col-12 col-md-6 pt-5 pt-md-0">
+                <svg class="bi bi-geo" width="3rem" height="3rem" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 4a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path d="M7.5 4h1v9a.5.5 0 01-1 0V4z"/>
+                <path fill-rule="evenodd" d="M6.489 12.095a.5.5 0 01-.383.594c-.565.123-1.003.292-1.286.472-.302.192-.32.321-.32.339 0 .013.005.085.146.21.14.124.372.26.701.382.655.246 1.593.408 2.653.408s1.998-.162 2.653-.408c.329-.123.56-.258.701-.382.14-.125.146-.197.146-.21 0-.018-.018-.147-.32-.339-.283-.18-.721-.35-1.286-.472a.5.5 0 11.212-.977c.63.137 1.193.34 1.61.606.4.253.784.645.784 1.182 0 .402-.219.724-.483.958-.264.235-.618.423-1.013.57-.793.298-1.855.472-3.004.472s-2.21-.174-3.004-.471c-.395-.148-.749-.336-1.013-.571-.264-.234-.483-.556-.483-.958 0-.537.384-.929.783-1.182.418-.266.98-.47 1.611-.606a.5.5 0 01.595.383z" clip-rule="evenodd"/>
+              </svg>
+              <h3><strong>Device Tracking</strong></h3>
+              <p class="lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, far far away, behind the word mountains, far from the countries <a href="#">Jehoma and Trackers</a>, there live the blind texts. </p>
+            </div>
+          </div>
         </div>
-        <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button> -->
-        </div>
+      </section>
+
     </div>
-    </div>
-</div>
-
-<!-- End My Location Modal -->
 
 
 
+    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-  <!-- SIGN-UP Modal -->
-  <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="modal-signupLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-      <div class="modal-content">
+    <!--    Sign In Modal     -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
           <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
-          </button>
+            </button>
           </div>
           <div class="modal-body">
-          
-              <form id="signup-form">
-                  <div class="form-group">
-                      <label for="email-input">Email address</label>
-                      <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp">
-                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                  </div>
-                  <div class="form-group">
-                  <label for="password-input">Password</label>
-                  <input type="password" class="form-control" id="password-input">
-                  </div>
-                  
-                  <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+              
+            <form id="signin-form">
+              <div class="form-group">
+                <label for="email-input">Email:</label>
+                <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="password-input">Password:</label>
+                <input type="password" class="form-control" id="password-input" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary btn-block mt-4" id="signin-btn">Submit</button>
+            </form>
 
           </div>
           <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button> -->
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Nope</button> 
+            <button type="button" class="btn btn-primary btn-block">Sign-In</button>
+            -->
           </div>
+        </div>
       </div>
-      </div>
-  </div>
-
-  <!-- End Sign-Up Modal -->
-
-
-
-
-
-
-  <!-- LOGIN MODAL -->
-
-
-
-  <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-loginLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="modal-loginLabel">Login</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        <div class="modal-body">
-        
-            <form id="login-form">
-                <div class="form-group">
-                    <label for="login-email">Email address</label>
-                    <input class="form-control" type="email" id="login-email" required />
-                </div>
-                <div class="form-group">
-                    <label for="login-password">Your password</label>
-                    <input class="form-control" type="password" id="login-password" required />
-                </div>
-                <button class="btn btn-primary btn-block darken-2 z-depth-0" id="login-btn">Login</button>
-                
-            </form>
-
-              <div class="text-center mt-2">
-              <div class="spinner-border text-primary loading-spinner" style="display:none;"></div>
-            </div>
-
-        </div>
-        <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button> -->
-        </div>
     </div>
-    </div>
-</div>
 
 
 
@@ -348,30 +236,7 @@
 
 
 
-  <!-- <div id="modal-login" class="modal">
-    <div class="modal-content">
-      <h4>Login</h4><br />
-      <form id="login-form">
-        <div class="input-field">
-          <input type="email" id="login-email" required />
-          <label for="login-email">Email address</label>
-        </div>
-        <div class="input-field">
-          <input type="password" id="login-password" required />
-          <label for="login-password">Your password</label>
-        </div>
-        <button class="btn yellow darken-2 z-depth-0">Login</button>
-      </form>
-    </div>
-  </div> -->
 
-  <!-- ACCOUNT MODAL -->
-  <div id="modal-account" class="modal">
-    <div class="modal-content center-align">
-      <h4>Account details</h4><br />
-      <div class="account-details"></div>
-    </div>
-  </div>
 
 
 
@@ -422,73 +287,86 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-
-
-
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCJ34hTSeyMAxBTnKY6oYFqDg11oiAf820",
-    authDomain: "get-location-firebase-db.firebaseapp.com",
-    databaseURL: "https://get-location-firebase-db.firebaseio.com",
-    projectId: "get-location-firebase-db",
-    storageBucket: "get-location-firebase-db.appspot.com",
-    messagingSenderId: "841493656664",
-    appId: "1:841493656664:web:42cf50a4ce4b01ad08462d",
-    measurementId: "G-RT64971ZLL"
-  };
-  
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  //firebase.analytics();
-
-  const db = firebase.firestore();
-  const auth = firebase.auth();
-  //console.log("db: ", db);
-  
-
-  function getData() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script> -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCJ34hTSeyMAxBTnKY6oYFqDg11oiAf820",
+        authDomain: "get-location-firebase-db.firebaseapp.com",
+        databaseURL: "https://get-location-firebase-db.firebaseio.com",
+        projectId: "get-location-firebase-db",
+        storageBucket: "get-location-firebase-db.appspot.com",
+        messagingSenderId: "841493656664",
+        appId: "1:841493656664:web:42cf50a4ce4b01ad08462d",
+        measurementId: "G-RT64971ZLL"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      
+      // Get the Auth service for the default app
+      let auth = firebase.auth();
+
+      // Get the Auth service for the default app
+      let db = firebase.firestore();
+
+    </script>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- JavaScript Dependencies: jQuery, Popper.js, Bootstrap JS, Shards JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/firebase/auth.js"></script>
+    <script src="js/firebase/db.js"></script>
+    <script src="js/res/shards.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js" integrity="sha256-hBMojZuWKocCflyaG8T19KBq9OlTlK39CTxb8AUWKhY=" crossorigin="anonymous"></script> -->
+    <script src="js/res/anime.min.js"></script>
+    <script src="js/index.js"></script>
+
+    <script src="js/animate/animate.js"></script>
     
-    db.collection('locations').get()
-        .then(res => {
-            console.log("firebase locations: ", res);
-            //console.log(res.docs[0].data()['latitude']);
-        });
-  }
-  getData();
-
-
-
-
-  
-
-
-
-
-</script>
-
-
-
-<script src="js/jquery.js"></script>
-<script src="js/script.js"></script>
-<script src="js/auth.js"></script>
-
-
-
-
-</body>
+  </body>
 </html>

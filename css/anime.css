@@ -1,0 +1,23 @@
+.box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 4px;
+    display: inline-block;
+}
+
+.red {
+    background-color: lightcoral;
+}
+
+.green {
+    background-color: lightgreen;
+}
+
+.blue {
+    background-color: cornflowerblue;
+}
+
+.greenyellow {
+    background-color: greenyellow;
+}
